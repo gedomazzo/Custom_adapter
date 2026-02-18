@@ -11,7 +11,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
-    Costumes[] costumes = {new Costumes("name1"), new Costumes("name2")};
+    Costumes[] costumes = {new Costumes("name1", R.drawable.img, 1, "category1"), new Costumes("name2", R.drawable.img, 2, "category2")};
 
     Spinner spinner;
 

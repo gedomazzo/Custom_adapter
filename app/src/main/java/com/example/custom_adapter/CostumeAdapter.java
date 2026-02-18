@@ -14,8 +14,17 @@ public class CostumeAdapter extends ArrayAdapter<Costumes> {
         super(context, R.layout.list_item, costumes);
     }
 
+    @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        // Check if the existing view is being reused, otherwise inflate the view
+        return initView(position, convertView, parent);
+    }
+
+    @Override
+    public View getDropDownView(int position, View convertView, ViewGroup parent) {
+        return initView(position, convertView, parent);
+    }
+
+    private View initView(int position, View convertView, ViewGroup parent) {
         View listItemView = convertView;
         if (listItemView == null) {
             listItemView = LayoutInflater.from(getContext()).inflate(
@@ -23,11 +32,18 @@ public class CostumeAdapter extends ArrayAdapter<Costumes> {
         }
         Costumes currentCostume = getItem(position);
 
-        // Find the TextView in the list_item.xml layout with the ID version_name
         TextView nameTextView = (TextView) listItemView.findViewById(R.id.name);
-        // Get the version name from the current AndroidFlavor object and
-        // set this text on the name TextView
         nameTextView.setText(currentCostume.getName());
+
+        TextView levelTextView = (TextView) listItemView.findViewById(R.id.level);
+        levelTextView.setText(String.valueOf(currentCostume.getLevel()));
+
+        TextView categoryTextView = (TextView) listItemView.findViewById(R.id.category);
+        categoryTextView.setText(currentCostume.getCategory());
+
+        ImageView imageView = (ImageView) listItemView.findViewById(R.id.img);
+        imageView.setImageResource(currentCostume.getImage());
+
         return listItemView;
     }
 }

@@ -33,13 +33,13 @@ public class CostumeAdapter extends ArrayAdapter<Costumes> {
         Costumes currentCostume = getItem(position);
 
         TextView nameTextView = (TextView) listItemView.findViewById(R.id.name);
-        nameTextView.setText(currentCostume.getName());
+        nameTextView.setText("name" + currentCostume.getName());
 
         TextView levelTextView = (TextView) listItemView.findViewById(R.id.level);
-        levelTextView.setText(String.valueOf(currentCostume.getLevel()));
+        levelTextView.setText("difficulty" + String.valueOf(currentCostume.getLevel()));
 
         TextView categoryTextView = (TextView) listItemView.findViewById(R.id.category);
-        categoryTextView.setText(currentCostume.getCategory());
+        categoryTextView.setText("category" + currentCostume.getCategory());
 
         ImageView imageView = (ImageView) listItemView.findViewById(R.id.img);
         imageView.setImageResource(currentCostume.getImage());
